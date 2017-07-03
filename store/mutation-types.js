@@ -1,0 +1,8 @@
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+export const LOGEDIN = 'LOGEDIN'
+export const LOGEDOUT = 'LOGEDOUT'
+export const GETNEWS = 'GETNEWS'
+export const GETALBUMS = 'GETALBUMS'
+export const RECEIVEDNEWS = 'RECEIVEDNEWS'
+export const RECEIVEDALBUMS = 'RECEIVEDALBUMS'

@@ -5,7 +5,9 @@
   "author": "five6 <936333511@qq.com>",
   "private": true,
   "dependencies": {
-    "nuxt": "latest"
+    "axios": "^0.16.2",
+    "nuxt": "latest",
+    "vuex": "^2.3.1"
   },
   "scripts": {
     "dev": "nuxt",
