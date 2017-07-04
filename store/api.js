@@ -1,6 +1,13 @@
 import axios from 'axios'
+export const register = (user, callback) => {
+  axios.post('api/user/register', user).then(function (response) {
+    callback(null, response)
+  }).catch(function (error) {
+    callback(error)
+  })
+}
 export const login = (user, callback) => {
-  axios.get('/api/login').then(function (response) {
+  axios.post('/api/user/login', user).then(function (response) {
     callback(null, response)
   }).catch(function (err) {
     console.log(err)
@@ -8,7 +15,7 @@ export const login = (user, callback) => {
   })
 }
 export const logout = (user, callback) => {
-  axios.post('/api/logout').then(function (response) {
+  axios.post('/api/user/logout', user).then(function (response) {
     callback(null, response)
   }).catch(function (err) {
     console.log(err)

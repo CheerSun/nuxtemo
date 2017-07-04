@@ -7,9 +7,9 @@ router.use(function (req, res, next) {
   next()
 })
 
-router.get('/', function* (req, res, next) {
+router.get('/', function (req, res, next) {
   console.log(req.query)
-  const newsList = yield service.newsList()
+  const newsList = service.newsList()
   console.log(newsList)
   res.end(newsList)
 })

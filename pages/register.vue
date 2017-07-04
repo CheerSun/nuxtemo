@@ -46,8 +46,8 @@
           name: this.userName,
           password: this.password
         }
-        alert('登陆成功' + user.name)
-//        this.$store.dispatch('register', user)
+//        alert('登陆成功' + user.name)
+        this.$store.dispatch('register', {user})
       }
     },
     components: {

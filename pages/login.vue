@@ -3,10 +3,10 @@
     <div>
       <b-form>
         <b-form-fieldset for="userName"  label="用户名" >
-          <b-form-input  type="text" :value="userHome" target="userName" />
+          <b-form-input  type="text" v-model="userName" target="userName" />
         </b-form-fieldset>
         <b-form-fieldset for="password"  label="密码" >
-          <b-form-input type="password" :value="password" target="password" />
+          <b-form-input type="password" v-model="password" target="password" />
         </b-form-fieldset>
         <b-form-fieldset>
           <b-button @click="login" variant="success" :size="lg">登陆</b-button>
@@ -23,13 +23,19 @@
     data () {
       return {
         lg: 'lg',
-        userHome: '',
+        userName: '',
         password: ''
       }
     },
     methods: {
       login () {
-        alert(this.userHome + '_' + this.password)
+        if (this.userName && this.password) {
+          const user = {
+            name: this.userName,
+            password: this.password
+          }
+          this.$store.dispatch('login', {user})
+        }
       }
     },
     components: {

@@ -1,4 +1,4 @@
-class newController {
+class newsController {
   * newsList (cond, callback) {
     console.log('123456')
     return [
@@ -7,4 +7,4 @@ class newController {
     ]
   }
 }
-module.exports = newController
+module.exports = newsController
