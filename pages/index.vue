@@ -1,27 +1,33 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
-      <h1 class="title">
-        NUXT
-      </h1>
-      <h2 class="subtitle">
-        Universal Vue.js Application
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
+      <b-form>
+        <b-form-fieldset>
+          <b-button-group>
+            <b-button variant="success" size="size" href="/login">登陆</b-button>
+            <b-button variant="info" size="size" href="/register">注册</b-button>
+          </b-button-group>
+        </b-form-fieldset>
+      </b-form>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~components/Logo.vue'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
+  data () {
+    return {
+      size: 'lg'
+    }
+  },
+  methods: {
+    login () {
+
+    }
+  },
   components: {
-    Logo
   }
 }
 </script>
