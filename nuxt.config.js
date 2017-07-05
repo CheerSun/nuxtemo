@@ -35,5 +35,9 @@ module.exports = {
       }
     }
   },
-  plugins: ['~plugins/bootstrap-vue']
+  plugins: ['~plugins/element-ui.js'],
+  css: [
+    'element-ui/lib/theme-default/index.css',
+    {src: 'element-ui', lang: 'css'}
+  ]
 }

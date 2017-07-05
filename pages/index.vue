@@ -1,21 +1,15 @@
 <template>
   <section class="container">
     <div>
-      <b-form>
-        <b-form-fieldset>
-          <b-button-group>
-            <b-button variant="success" size="size" href="/login">登陆</b-button>
-            <b-button variant="info" size="size" href="/register">注册</b-button>
-          </b-button-group>
-        </b-form-fieldset>
-      </b-form>
+      <el-button-group>
+        <el-button type="success" @click="login">登录</el-button>
+        <el-button type="info" @click="register">注册</el-button>
+      </el-button-group>
     </div>
   </section>
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
   data () {
     return {
@@ -24,7 +18,10 @@ export default {
   },
   methods: {
     login () {
-
+      location.href = '/login'
+    },
+    register () {
+      location.href = '/register'
     }
   },
   components: {

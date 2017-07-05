@@ -3,5 +3,6 @@ export default {
   refresh: state => state.refresh,
   user: state => state.user,
   news: state => state.news,
-  albums: state => state.albums
+  albums: state => state.albums,
+  online: state => state.online
 }

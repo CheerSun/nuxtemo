@@ -1,40 +1,39 @@
 <template>
   <section class="container">
-    <div>
-      <b-form>
-        <b-form-fieldset for="userName"  label="用户名" >
-          <b-form-input  type="text" v-model="userName" target="userName" />
-        </b-form-fieldset>
-        <b-form-fieldset for="password"  label="密码" >
-          <b-form-input type="password" v-model="password" target="password" />
-        </b-form-fieldset>
-        <b-form-fieldset>
-          <b-button @click="login" variant="success" :size="lg">登陆</b-button>
-        </b-form-fieldset>
-      </b-form>
-    </div>
+    <el-form ref="form" :model="user" label-width="80px">
+      <el-form-item label="用户名">
+        <el-input v-model="user.name"></el-input>
+      </el-form-item>
+      <el-form-item label="密码">
+        <el-input type="password" v-model="user.password"></el-input>
+      </el-form-item>
+      <el-form-item label="">
+        <el-button type="success" @click="login">登录</el-button>
+      </el-form-item>
+    </el-form>
   </section>
 </template>
 
 <script>
-  import 'bootstrap/dist/css/bootstrap.css'
-  import 'bootstrap-vue/dist/bootstrap-vue.css'
+  import {mapGetters} from 'vuex'
   export default {
     data () {
       return {
-        lg: 'lg',
-        userName: '',
-        password: ''
+        user: {
+          name: '',
+          password: ''
+        }
       }
+    },
+    computed: {
+      ...mapGetters([
+        'online'
+      ])
     },
     methods: {
       login () {
-        if (this.userName && this.password) {
-          const user = {
-            name: this.userName,
-            password: this.password
-          }
-          this.$store.dispatch('login', {user})
+        if (this.user.name && this.user.password) {
+          this.$store.dispatch('login', {user: this.user})
         }
       }
     },

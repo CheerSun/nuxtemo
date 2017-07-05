@@ -3,18 +3,31 @@ const app = require('express')()
 
 const bodyParser = require('body-parser')
 const session = require('express-session')
-
+// var RedisStore = require('connect-redis')(session)
+var MongoStore = require('connect-mongo')(session)
 const isProd = (process.env.NODE_ENV === 'production')
 const port = process.env.PORT || 3000
 const user = require('./server/router/user')
 const news = require('./server/router/news')
 const albums = require('./server/router/albums')
 app.use(bodyParser.json())
-app.use(session({
-  secret: 'super-secret-key',
+const dbConfig = require('./server/config/db')
+
+// redis save session
+// app.use(session({
+//   store: new RedisStore(dbConfig.redis.session),
+//   cookie: { maxAge: 1000 * 60 * 60 * 60 },
+//   secret: 'keyboard cat',
+//   key: 'nuxt_session'
+// }))
+
+app.use(session({ // session持久化配置
+  secret: 'kvkenssecret',
+  key: 'kvkenskey',
+  cookie: {maxAge: 1000 * 60 * 60 * 60}, // 超时时间
   resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 60000 }
+  saveUninitialized: true,
+  store: new MongoStore(dbConfig.mongodb.session)
 }))
 
 // 用指定的配置对象实例化 Nuxt.js

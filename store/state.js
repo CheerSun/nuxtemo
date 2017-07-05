@@ -3,5 +3,6 @@ export default {
   loading: false,
   refresh: false,
   news: [],
-  albums: []
+  albums: [],
+  online: false
 }

@@ -7,14 +7,14 @@ router.use(function (req, res, next) {
 })
 
 router.post('/login', function (req, res, next) {
-  service.login(req.body, function () {
+  service.login(req.body.user || {}, function () {
     res.json({
       name: 'register'
     })
   })
 })
 router.post('/register', function (req, res, next) {
-  service.register(req.body, function () {
+  service.register(req.body.user || {}, function () {
     res.json({
       name: 'register'
     })
