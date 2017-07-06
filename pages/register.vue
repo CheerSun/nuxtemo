@@ -3,7 +3,7 @@
     <div>
       <el-form ref="form" :model="user" label-width="80px">
         <el-form-item label="用户名">
-          <el-input v-model="user.name"></el-input>
+          <el-input v-model="user.username"></el-input>
         </el-form-item>
         <el-form-item label="密码">
           <el-input type="password" v-model="user.password"></el-input>
@@ -24,7 +24,7 @@
     data () {
       return {
         user: {
-          name: '',
+          username: '',
           password: '',
           rePassword: ''
         }
@@ -39,6 +39,7 @@
           })
           return false
         }
+        delete this.user.rePassword
         this.$store.dispatch('register', {user: this.user})
       }
     },

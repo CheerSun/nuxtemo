@@ -25,12 +25,14 @@ module.exports = {
     dev: {
       db: 'nuxt',
       host: 'localhost',
-      port: 27017
+      port: 27017,
+      url: 'mongodb://localhost:27017/nuxt'
     },
     prod: {
       db: 'nuxt',
       host: 'localhost',
-      port: 27017
+      port: 27017,
+      url: 'mongodb://localhost:27017/nuxt'
     }
   },
   redis: {

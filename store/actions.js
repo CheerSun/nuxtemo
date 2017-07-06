@@ -29,5 +29,15 @@ export default {
         commit(types.LOGEDOUT, {user})
       }
     })
+  },
+  news ({commit}) {
+    commit(types.GETNEWS)
+    API.getNews({}, function (err, news) {
+      if (err) {
+        commit(types.FETCHED_NEWS, {news: []})
+      } else {
+        commit(types.FETCHED_NEWS, {news})
+      }
+    })
   }
 }

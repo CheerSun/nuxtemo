@@ -1,3 +1,10 @@
-/**
- * Created by jerry on 2017/7/4.
- */
+const newsService = require('../service/newsService')
+class NewsController {
+  getNews (cond, cb) {
+    console.log('1111111111111111111111')
+    newsService.getNewsList(cond, function (err,newsList) {
+      cb(err, newsList)
+    })
+  }
+}
+module.exports = new NewsController()
