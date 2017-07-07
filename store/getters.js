@@ -2,7 +2,7 @@ export default {
   loading: state => state.loading,
   refresh: state => state.refresh,
   user: state => state.user,
-  news: state => state.news,
+  newsList: state => state.newsList,
   albums: state => state.albums,
   online: state => state.online
 }

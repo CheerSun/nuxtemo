@@ -2,7 +2,7 @@ export default {
   user: {},
   loading: false,
   refresh: false,
-  news: [],
+  newsList: [],
   albums: [],
   online: false
 }

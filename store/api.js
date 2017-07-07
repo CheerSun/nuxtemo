@@ -22,11 +22,11 @@ export const logout = (user, callback) => {
     callback(err)
   })
 }
-export const getNews = (user, callback) => {
-  axios.get('/api/news').then(function (response) {
-    callback(null, response)
+export const getNews = ({page, per_page}, callback) => {
+  axios.get('/api/news', {page: page, per_page: per_page}).then(function (response) {
+    callback(null, response.data || [])
   }).catch(function (err) {
     console.log(err)
-    callback(err, null)
+    callback(err, [])
   })
 }

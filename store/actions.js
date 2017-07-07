@@ -30,9 +30,9 @@ export default {
       }
     })
   },
-  news ({commit}) {
-    commit(types.GETNEWS)
-    API.getNews({}, function (err, news) {
+  getNews ({commit}, {page, per_page}) {
+    commit(types.GETNEWS, {page, per_page})
+    API.getNews({page, per_page}, function (err, news) {
       if (err) {
         commit(types.FETCHED_NEWS, {news: []})
       } else {

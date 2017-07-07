@@ -33,23 +33,29 @@ module.exports = {
       host: 'localhost',
       port: 27017,
       url: 'mongodb://localhost:27017/nuxt'
+    },
+    crawler: {
+      db: 'egg',
+      host: 'localhost',
+      port: 27017,
+      url: 'mongodb://localhost:27017/egg'
     }
   },
   redis: {
     session: {
       host: '127.0.0.1',
       port: 6379,
-      db: '0'
+      db: 0
     },
     dev: {
       host: '127.0.0.1',
       port: 6379,
-      db: '0'
+      db: 0
     },
     prod: {
       host: '127.0.0.1',
       port: 6379,
-      db: '0'
+      db: 0
     }
   }
 }

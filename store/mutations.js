@@ -16,5 +16,11 @@ export default {
   [types.LOGEDOUT] (state, {user}) {
     state.user = {}
     console.log('您已经退出')
+  },
+  [types.GETNEWS] (state, {page, per_page}) {
+    console.log(page, per_page)
+  },
+  [types.FETCHED_NEWS] (state, {news}) {
+    state.newsList = state.newsList.concat(news)
   }
 }

@@ -7,7 +7,7 @@ router.use(function (req, res, next) {
 })
 
 router.get('/', function (req, res, next) {
-  service.getNews({}, function (err, newsList) {
+  service.getNews(req.query, function (err, newsList) {
     res.json(err ? [] : newsList)
   })
 })
