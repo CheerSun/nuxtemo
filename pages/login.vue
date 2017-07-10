@@ -37,6 +37,13 @@
         }
       }
     },
+    watch: {
+      online: function (value) {
+        if (value) {
+          this.$router.push('main')
+        }
+      }
+    },
     components: {
     }
   }

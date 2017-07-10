@@ -8,6 +8,7 @@ export default {
   },
   [types.LOGEDIN] (state, {user}) {
     state.user = user
+    state.online = true
     console.log('登陆成功 ' + user.name)
   },
   [types.LOGOUT] (state, {user}) {
