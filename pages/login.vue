@@ -37,6 +37,11 @@
         }
       }
     },
+    head () {
+      return {
+        title: '登录'
+      }
+    },
     watch: {
       online: function (value) {
         if (value) {

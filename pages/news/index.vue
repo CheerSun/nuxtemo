@@ -46,6 +46,11 @@
         this.$router.push('/news/' + news._id)
       }
     },
+    head () {
+      return {
+        title: '新闻列表'
+      }
+    },
     filters: {
       getImageSrc: function (image) {
         if (!image) return ''

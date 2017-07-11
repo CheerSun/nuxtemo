@@ -13,13 +13,12 @@
 <script>
   import axios from 'axios'
   import moment from 'moment'
-  moment.locale('cn')
   export default {
     data () {
       return {}
     },
     asyncData (context) {
-      return axios.get(`/api/topics`).then(response => {
+      return axios.get('/api/topics').then(response => {
         console.log(response)
         return {topics: response.data}
       }).catch(e => {

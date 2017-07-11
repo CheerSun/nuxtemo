@@ -40,6 +40,11 @@
     },
     mounted () {
     },
+    head () {
+      return {
+        title: '后台'
+      }
+    },
     methods: {
       handleOpen (key, keyPath) {
         console.log(key, keyPath)

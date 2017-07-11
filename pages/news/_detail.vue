@@ -9,6 +9,11 @@
       return {}
     },
     methods: {
+    },
+    head () {
+      return {
+        title: '新闻详情'
+      }
     }
   }
 </script>

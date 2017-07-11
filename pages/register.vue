@@ -43,6 +43,11 @@
         this.$store.dispatch('register', {user: this.user})
       }
     },
+    head () {
+      return {
+        title: '注册'
+      }
+    },
     components: {
     }
   }

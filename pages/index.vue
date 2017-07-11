@@ -1,16 +1,15 @@
 <template>
   <section class="container">
-    <el-carousel :autoplay="true" :interval="4000" type="card" height="500px" style="width: 1200px">
-      <el-carousel-item v-for="item in logos" :key="item.title">
+    <el-carousel :autoplay="true" :interval="5000" type="card" height="500px" style="width: 1200px" @change="indexChange">
+      <el-carousel-item v-for="item in logos" :key="item.id">
         <img :src="item.img" />
+        <div class="loginDiv">
+          <el-button-group v-show="selectedIndex === item.id">
+            <el-button :type="btnType" @click="onClick">{{methodTitle}}</el-button>
+          </el-button-group>
+        </div>
       </el-carousel-item>
     </el-carousel>
-  <div class="loginDiv">
-    <el-button-group>
-      <el-button type="success" @click="login">登录</el-button>
-      <el-button type="info" @click="register">注册</el-button>
-    </el-button-group>
-    </div>
   </section>
 </template>
 
@@ -19,22 +18,71 @@ export default {
   data () {
     return {
       size: 'lg',
+      selectedIndex: 0,
+      btnType: 'success',
+      methodTitle: '登录',
       logos: [
-        {title: ' ', img: '/carousel/spring.jpg'},
-        {title: '', img: '/carousel/summer.jpg'},
-        {title: '', img: '/carousel/autumn.jpg'},
-        {title: '', img: '/carousel/winter.jpg'}
+        {id: 0, img: '/carousel/spring.jpg'},
+        {id: 1, img: '/carousel/summer.jpg'},
+        {id: 2, img: '/carousel/autumn.jpg'},
+        {id: 3, img: '/carousel/winter.jpg'},
+        {id: 4, img: '/carousel/node.jpg'}
       ]
     }
   },
   mounted () {
   },
   methods: {
-    login () {
-      location.href = '/login'
+    indexChange (index) {
+      this.selectedIndex = index
+      switch (index) {
+        case 0:
+          this.btnType = 'success'
+          this.methodTitle = '登录'
+          break
+        case 1:
+          this.btnType = 'warning'
+          this.methodTitle = '注册'
+          break
+        case 2:
+          this.btnType = 'danger'
+          this.methodTitle = '新闻'
+          break
+        case 3:
+          this.btnType = 'info'
+          this.methodTitle = '后台'
+          break
+        case 4:
+          this.btnType = 'info'
+          this.methodTitle = 'cnodeJs主题'
+          break
+      }
+      console.log(index)
     },
-    register () {
-      location.href = '/register'
+    onClick () {
+      let router
+      switch (this.selectedIndex) {
+        case 0:
+          router = '/login'
+          break
+        case 1:
+          router = '/register'
+          break
+        case 2:
+          router = '/news'
+          break
+        case 3:
+          router = '/main'
+          break
+        case 4:
+          router = '/topics'
+      }
+      location.href = router
+    }
+  },
+  head () {
+    return {
+      title: '欢迎您'
     }
   },
   components: {
@@ -44,9 +92,10 @@ export default {
 
 <style>
   .loginDiv{
-    width: 200px;
     position: absolute;
     z-index: 1000;
+    bottom: 45%;
+    left: 40%;
   }
 .container
 {
