@@ -8,6 +8,7 @@ var RedisStore = require('connect-redis')(session)
 const isProd = (process.env.NODE_ENV === 'production')
 const port = process.env.PORT || 3000
 const user = require('./server/router/user')
+const topics = require('./server/router/topics')
 const news = require('./server/router/news')
 const albums = require('./server/router/albums')
 app.use(bodyParser.json())
@@ -37,6 +38,7 @@ config.dev = !isProd
 const nuxt = new Nuxt(config)
 
 app.use('/api/user', user)
+app.use('/api/topics', topics)
 app.use('/api/news', news)
 app.use('/api/albums', albums)
 // 用 Nuxt.js 渲染每个路由
