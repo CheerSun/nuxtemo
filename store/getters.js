@@ -4,5 +4,6 @@ export default {
   user: state => state.user,
   newsList: state => state.newsList,
   albums: state => state.albums,
-  online: state => state.online
+  online: state => state.online,
+  menuList: state => state.menuList
 }
